@@ -1,0 +1,293 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "firstWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "secondWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "thirdWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					}
+				],
+				"name": "FinalizeAndCreateNewEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "manualClaimreward",
+						"type": "bool"
+					}
+				],
+				"name": "SumUpandClaimPrizeEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "changeRegistryContractAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestHistoryID",
+						"type": "uint256"
+					}
+				],
+				"name": "comeupwithThisDrawLuckyUsers",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					}
+				],
+				"name": "genesisEpochInitialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestHistoryID",
+						"type": "uint256"
+					}
+				],
+				"name": "getRandomnessHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "poolAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "epochNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "DrawRequestID",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "thisDrawTicketAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint32",
+								"name": "randomWordsAmount",
+								"type": "uint32"
+							},
+							{
+								"internalType": "bool",
+								"name": "fulfilled",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "results",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct RewardDistributor.RandomnessRequest",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "TotalTicketAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "randomWordsAmount",
+						"type": "uint32"
+					}
+				],
+				"name": "requestRandomness",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"RewardDistributor.sol": "RewardDistributor"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"Library/IMutualPool.sol": {
+			"keccak256": "0xdb85214c470ebb177b55e8d6f99afbe08a0023493cf496ccc4b62cc7f954004f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d42c2c94e37e299a2029fdfa36ce15199dfa51a85c30071de30ce83d955b87c4",
+				"dweb:/ipfs/Qmer8Cb2yVxh7svcqFKcWp66EBChFXmA6F6jPLhVzy3X5v"
+			]
+		},
+		"Library/IRoleRegistry.sol": {
+			"keccak256": "0xbecd0e583454e4db42e7702321f242d4e3780d89fc0a89deafb341612ecbdc9f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c48cc783b29c16640da03399a611781b2c246ad4d3b48873e835757f00041f0a",
+				"dweb:/ipfs/QmYRQDHmyLzeYzfbuyeT3ogSoLu4gS7BdN6SwohJUT3VAV"
+			]
+		},
+		"Library/IVRFv2DirectFundingConsumer.sol": {
+			"keccak256": "0xafe0893db45e101466ab352e366896e6d1058f18f98cb95e2d6058a977afcb5f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fef9de24245b8f14daaf046a6d7fad678dc121d98c18191bdcf5b960da4ae1bb",
+				"dweb:/ipfs/QmZuTfdPDi6wpaScJWKDvFZ1QJrFuQkAw4S9wbXMYBVCyM"
+			]
+		},
+		"RewardDistributor.sol": {
+			"keccak256": "0x9048c983de9c21b56f8dd444d949eb9d5392e5e9abea96c7c3428a91dc2693f8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://564280293cf9c24786b5d5c4fec50536c7c768af1201172d2653fd9c5ad529fa",
+				"dweb:/ipfs/Qmau8ajr8Q1BZxKXcZcXAUDZmiph81JmkQiAisHiYB3oXW"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,847 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldController",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newController",
+						"type": "address"
+					}
+				],
+				"name": "ControllerRoleTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldRouter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newRouter",
+						"type": "address"
+					}
+				],
+				"name": "changedRouter",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "first",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "second",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "third",
+						"type": "uint256"
+					}
+				],
+				"name": "rewardPortionUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "changeRegistryContractAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimRewardFromPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "claimRewardsFor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createNewEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "firstWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "secondWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "thirdWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpochTicketandParticipantInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getAccumulatedTicketwithoutDecimal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getBalanceChangeHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "changedwithinEpoch",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "oldAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "newAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "updatedBlock",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct stETHP.ChangeArray[]",
+								"name": "historyArray",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct stETHP.userChangeHistory",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getClaimable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentEpochReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getEpochInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct stETHP.PrizeDetails",
+								"name": "first",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct stETHP.PrizeDetails",
+								"name": "second",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct stETHP.PrizeDetails",
+								"name": "third",
+								"type": "tuple"
+							},
+							{
+								"internalType": "bool",
+								"name": "finalized",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalPrize",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdTimeStamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalParticipant",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct stETHP.EpochResult",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEpochLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLatestEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPoolTVL",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardAllocationPercentage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "first",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "second",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "third",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct stETHP.rewardAllocation",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getTicketAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTokenUsing",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUserAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserDepositInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "userAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "DepositAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "registeredDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "Lastupdated",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct stETHP.userInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getWinningHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "EpochNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "position",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "PrizeAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct stETHP.rewardHistory[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userID",
+						"type": "uint256"
+					}
+				],
+				"name": "getuserByID",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "duration",
+						"type": "uint256"
+					}
+				],
+				"name": "setEpochDuration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "setMinAmounttoDeposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "firstP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "secondP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "thirdP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "percentageSUM",
+						"type": "uint256"
+					}
+				],
+				"name": "setRewardRatio",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "StakePoolAdd",
+						"type": "address"
+					}
+				],
+				"name": "setStakePoolAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "decimal",
+						"type": "uint256"
+					}
+				],
+				"name": "setTicketDecimal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "setToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"stETHPool.sol": "stETHP"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"Library/IApeStakePool.sol": {
+			"keccak256": "0x1b67a3dbe49c7f8bee955d070fabc4056385b1dcc2771ec3cfaaa8038a9c7ea9",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://6819329d532b1d581db3998d43d65eeeaa63c8ef77733565293783dd7f469772",
+				"dweb:/ipfs/QmYs771fgLXgdbjsuv2tKMBHbsYmgmughVQTYeDGY88QTR"
+			]
+		},
+		"Library/IRoleRegistry.sol": {
+			"keccak256": "0x8d597a8d99983bc5debf6719471a8dc8f64989ec7c8cf364c5bf43d8f9b245bd",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://13e0ebde8f2bf2f1c181df91ac2671d09edfbbb183ccf7e4823204e0cbcc930f",
+				"dweb:/ipfs/QmbDDo9JJUYqgHCjTZ42C76MQyLLQgsoekroBcGdhSRo47"
+			]
+		},
+		"stETHPool.sol": {
+			"keccak256": "0xa8b47a0df3511f70e820a7535d062da8695a776eab20b47d35417adb16553876",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://a59e9182fcd3f9d35f9b16356f826f4d190886a0010c795f949a0f14015f7e9d",
+				"dweb:/ipfs/QmSTFAay5db1zG6MGntWXqAyudy6xQAtdfrScQoTAFYEeJ"
+			]
+		}
+	},
+	"version": 1
+}

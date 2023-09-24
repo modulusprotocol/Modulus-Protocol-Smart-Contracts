@@ -1,0 +1,159 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "changeRegistryContractAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "transferReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"RewardReserve.sol": "RewardReserve"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x58b21219689909c4f8339af00813760337f7e2e7f169a97fe49e2896dcfb3b9a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ef8e012e946dec20e59f2d4446f4b44bb098f3fa8bac103b1b5112fff777447b",
+				"dweb:/ipfs/QmVTooKWcLkJ9W68yNX4MgdrbAKiAXwuRN9A7f4NkdcdtQ"
+			]
+		},
+		"Library/IMutualPool.sol": {
+			"keccak256": "0xdb85214c470ebb177b55e8d6f99afbe08a0023493cf496ccc4b62cc7f954004f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d42c2c94e37e299a2029fdfa36ce15199dfa51a85c30071de30ce83d955b87c4",
+				"dweb:/ipfs/Qmer8Cb2yVxh7svcqFKcWp66EBChFXmA6F6jPLhVzy3X5v"
+			]
+		},
+		"Library/IRoleRegistry.sol": {
+			"keccak256": "0xbecd0e583454e4db42e7702321f242d4e3780d89fc0a89deafb341612ecbdc9f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c48cc783b29c16640da03399a611781b2c246ad4d3b48873e835757f00041f0a",
+				"dweb:/ipfs/QmYRQDHmyLzeYzfbuyeT3ogSoLu4gS7BdN6SwohJUT3VAV"
+			]
+		},
+		"Library/IRouter.sol": {
+			"keccak256": "0x6128676827387250bbe3d62f7ce838ed4e6c86194222735f7f50e042ecbfd086",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ad0733518cdaeb05393730e8423e3a755c0ccdeddf478f72178bc567bf17b760",
+				"dweb:/ipfs/QmbqXLioXfGnTyUB15tb4TF521tdtsY5cr79vEeS1ubLhY"
+			]
+		},
+		"RewardReserve.sol": {
+			"keccak256": "0x4bc09f399607f5fdb572358d5ea22c9b431fde22a9fe11441d947578ffa9ba5c",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ea9b50195973fa3f5e03cf5335d81dddfd22afbda9efe7775f9039d1f9fa263f",
+				"dweb:/ipfs/QmZyBQyYmZoYDiPLX9gk8kUrbsriRrw3meVrjuMazRC9dn"
+			]
+		}
+	},
+	"version": 1
+}

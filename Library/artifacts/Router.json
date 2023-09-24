@@ -1,0 +1,629 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addPool(address)": "d914cd4b",
+			"changeRegistryContractAddr(address)": "fa7c828a",
+			"claimReward(uint256)": "ae169a50",
+			"deposit(uint256,uint256)": "e2bbb158",
+			"getPoolCurrentYield(uint256)": "60ab49ea",
+			"getPoolDetails(uint256)": "b8764c39",
+			"getPoolDrawInfo(uint256,uint256)": "fdc9ccfa",
+			"getPoolLatestEpoch(uint256)": "5922f9c9",
+			"getPoolLength()": "b3944d52",
+			"getPoolTVL(uint256)": "8f244630",
+			"getRewardClaimable(address,uint256)": "888d7bdd",
+			"getUserDepositInfo(uint256,address)": "fac4348b",
+			"getUserTicketAmountByPoolID(uint256,uint256,address)": "57ba8dde",
+			"initialize(address)": "c4d66de8",
+			"isPoolAllowed(address)": "d1e71c94",
+			"removePool(uint256)": "a38dcbd0",
+			"withdraw(uint256,uint256)": "441a3e70"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "oldController",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "newController",
+					"type": "address"
+				}
+			],
+			"name": "ControllerRoleTransferred",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "who",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "poolAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "Token",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "EpochRewardClaimed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "oldOwner",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "OwnershipTransferred",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "who",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "poolAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "deposited",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "who",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "poolAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawn",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_poolAddress",
+					"type": "address"
+				}
+			],
+			"name": "addPool",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "registryAddress",
+					"type": "address"
+				}
+			],
+			"name": "changeRegistryContractAddr",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "claimReward",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "deposit",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getPoolCurrentYield",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getPoolDetails",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "PoolAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "address",
+							"name": "PoolTokenToUse",
+							"type": "address"
+						}
+					],
+					"internalType": "struct Router._PoolDetails",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "epochNumber",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getPoolDrawInfo",
+			"outputs": [
+				{
+					"components": [
+						{
+							"components": [
+								{
+									"internalType": "address",
+									"name": "winner",
+									"type": "address"
+								},
+								{
+									"internalType": "uint256",
+									"name": "prizeAmount",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "claimed",
+									"type": "bool"
+								}
+							],
+							"internalType": "struct Router.PrizeDetails",
+							"name": "first",
+							"type": "tuple"
+						},
+						{
+							"components": [
+								{
+									"internalType": "address",
+									"name": "winner",
+									"type": "address"
+								},
+								{
+									"internalType": "uint256",
+									"name": "prizeAmount",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "claimed",
+									"type": "bool"
+								}
+							],
+							"internalType": "struct Router.PrizeDetails",
+							"name": "second",
+							"type": "tuple"
+						},
+						{
+							"components": [
+								{
+									"internalType": "address",
+									"name": "winner",
+									"type": "address"
+								},
+								{
+									"internalType": "uint256",
+									"name": "prizeAmount",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "claimed",
+									"type": "bool"
+								}
+							],
+							"internalType": "struct Router.PrizeDetails",
+							"name": "third",
+							"type": "tuple"
+						},
+						{
+							"internalType": "bool",
+							"name": "finalized",
+							"type": "bool"
+						},
+						{
+							"internalType": "uint256",
+							"name": "totalPrize",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "duration",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "createdTimeStamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "totalParticipant",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Router.EpochResult",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getPoolLatestEpoch",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getPoolLength",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getPoolTVL",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "user",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "getRewardClaimable",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "user",
+					"type": "address"
+				}
+			],
+			"name": "getUserDepositInfo",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "userAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "DepositAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "registeredDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "Lastupdated",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Router.userInfo",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "epochNumber",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "user",
+					"type": "address"
+				}
+			],
+			"name": "getUserTicketAmountByPoolID",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "registryAddress",
+					"type": "address"
+				}
+			],
+			"name": "initialize",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_poolAddress",
+					"type": "address"
+				}
+			],
+			"name": "isPoolAllowed",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				}
+			],
+			"name": "removePool",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "poolID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

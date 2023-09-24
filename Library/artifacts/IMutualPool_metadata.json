@@ -1,0 +1,836 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldController",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newController",
+						"type": "address"
+					}
+				],
+				"name": "ControllerRoleTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldRouter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newRouter",
+						"type": "address"
+					}
+				],
+				"name": "changedRouter",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "first",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "second",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "third",
+						"type": "uint256"
+					}
+				],
+				"name": "rewardPortionUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "changeRegistryContractAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimRewardFromPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "claimRewardsFor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createNewEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "firstWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "secondWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "thirdWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpochTicketandParticipantInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getAccumulatedTicketwithoutDecimal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getBalanceChangeHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "changedwithinEpoch",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "oldAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "newAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "updatedBlock",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct IMutualPool.ChangeArray[]",
+								"name": "historyArray",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct IMutualPool.userChangeHistory",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getClaimable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentEpochReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getEpochInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct IMutualPool.PrizeDetails",
+								"name": "first",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct IMutualPool.PrizeDetails",
+								"name": "second",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct IMutualPool.PrizeDetails",
+								"name": "third",
+								"type": "tuple"
+							},
+							{
+								"internalType": "bool",
+								"name": "finalized",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalPrize",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdTimeStamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalParticipant",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMutualPool.EpochResult",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEpochLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLatestEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMinAmountToDeposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPoolTVL",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardAllocationPercentage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "first",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "second",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "third",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMutualPool.rewardAllocation",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getTicketAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTokenUsing",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUserAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserDepositInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "userAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "DepositAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "registeredDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "Lastupdated",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMutualPool.userInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getWinningHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "EpochNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "position",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "PrizeAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMutualPool.rewardHistory[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userID",
+						"type": "uint256"
+					}
+				],
+				"name": "getuserByID",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "duration",
+						"type": "uint256"
+					}
+				],
+				"name": "setEpochDuration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "setMinAmounttoDeposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "firstP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "secondP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "thirdP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "percentageSUM",
+						"type": "uint256"
+					}
+				],
+				"name": "setRewardRatio",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "StakePoolAdd",
+						"type": "address"
+					}
+				],
+				"name": "setStakePoolAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "decimal",
+						"type": "uint256"
+					}
+				],
+				"name": "setTicketDecimal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "setToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Library/IMutualPool.sol": "IMutualPool"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Library/IMutualPool.sol": {
+			"keccak256": "0xdb85214c470ebb177b55e8d6f99afbe08a0023493cf496ccc4b62cc7f954004f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d42c2c94e37e299a2029fdfa36ce15199dfa51a85c30071de30ce83d955b87c4",
+				"dweb:/ipfs/Qmer8Cb2yVxh7svcqFKcWp66EBChFXmA6F6jPLhVzy3X5v"
+			]
+		}
+	},
+	"version": 1
+}

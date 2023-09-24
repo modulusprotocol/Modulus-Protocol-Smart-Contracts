@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "sample",
+						"type": "bytes"
+					}
+				],
+				"name": "getTest",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Trash.sol": "trash"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Trash.sol": {
+			"keccak256": "0xe472ed5ded41af0f5c79e116e9f611f6eba12edf54d64d8a69464c888523329e",
+			"urls": [
+				"bzz-raw://f4f894990904c54a6417cb1847ac0f285cfe81065c1bd7392ed7dea4bd069e13",
+				"dweb:/ipfs/QmXeio3Ew4bAdDuhmtDEJHzLQLbUL4TVR9WrPtvHuQi5sn"
+			]
+		}
+	},
+	"version": 1
+}

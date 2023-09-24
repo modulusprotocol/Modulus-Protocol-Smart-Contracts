@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "transferReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Library/IRewardReserve.sol": "IRewardReserve"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Library/IRewardReserve.sol": {
+			"keccak256": "0x3e5b0669b4377fed9dd86af229e2c733cd172540bf98f1a9893258f454774eb9",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c015aaabb98b0fe58793b3be2c4012a57e062cb235299819370f6800ba6568f5",
+				"dweb:/ipfs/QmWonPPGZjSAwDhL7dBmtxtNFEDMAvS7R3tks2zSx6JGnM"
+			]
+		}
+	},
+	"version": 1
+}

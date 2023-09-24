@@ -1,0 +1,876 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldController",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newController",
+						"type": "address"
+					}
+				],
+				"name": "ControllerRoleTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldRouter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newRouter",
+						"type": "address"
+					}
+				],
+				"name": "changedRouter",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "first",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "second",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "third",
+						"type": "uint256"
+					}
+				],
+				"name": "rewardPortionUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "changeRegistryContractAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimRewardFromPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "claimRewardsFor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "decimal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "duration",
+						"type": "uint256"
+					}
+				],
+				"name": "config",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createNewEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "firstWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "secondWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "thirdWinner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpoch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeEpochTicketandParticipantInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getAccumulatedTicketwithoutDecimal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getBalanceChangeHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "changedwithinEpoch",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "oldAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "newAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "updatedBlock",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct ApePool.ChangeArray[]",
+								"name": "historyArray",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct ApePool.userChangeHistory",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getClaimable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentEpochReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getEpochInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct ApePool.PrizeDetails",
+								"name": "first",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct ApePool.PrizeDetails",
+								"name": "second",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "winner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "prizeAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "claimed",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct ApePool.PrizeDetails",
+								"name": "third",
+								"type": "tuple"
+							},
+							{
+								"internalType": "bool",
+								"name": "finalized",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalPrize",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdTimeStamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalParticipant",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ApePool.EpochResult",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEpochLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLatestEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMinAmountToDeposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPoolTVL",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardAllocationPercentage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "first",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "second",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "third",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ApePool.rewardAllocation",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getTicketAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTokenUsing",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUserAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserDepositInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "userAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "DepositAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "registeredDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "Lastupdated",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ApePool.userInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getWinningHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "EpochNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "position",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "PrizeAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ApePool.rewardHistory[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userID",
+						"type": "uint256"
+					}
+				],
+				"name": "getuserByID",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registryAddress",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "firstP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "secondP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "thirdP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "percentageSUM",
+						"type": "uint256"
+					}
+				],
+				"name": "setRewardRatio",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "StakePoolAdd",
+						"type": "address"
+					}
+				],
+				"name": "setStakePoolAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ApePoolV1.sol": "ApePool"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x58b21219689909c4f8339af00813760337f7e2e7f169a97fe49e2896dcfb3b9a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ef8e012e946dec20e59f2d4446f4b44bb098f3fa8bac103b1b5112fff777447b",
+				"dweb:/ipfs/QmVTooKWcLkJ9W68yNX4MgdrbAKiAXwuRN9A7f4NkdcdtQ"
+			]
+		},
+		"ApePoolV1.sol": {
+			"keccak256": "0x3d414b212ab247c3fc349d9b412755a8e79334a77e24517e0ddb61504ecbe360",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://9ab8551d43a5b6379c7632de6e6fa1b295efea700f6f8e221969a65efe55af04",
+				"dweb:/ipfs/QmamABbPJsjGkWx6dobtHTmeio38CxZAzroFXxuviMt3Uv"
+			]
+		},
+		"Library/IApeStakePool.sol": {
+			"keccak256": "0x290e11519875de68bc1d237bf3191a392585b09b939c257522366532b8f96e51",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://67fdfb7a8732422df58671de6d07aafa268ec2407daf7b5be4f1df0edcbf8a46",
+				"dweb:/ipfs/QmNRwAA1Ph612xhSatDhADd5siJKzNEhvb6SoPPobvGb8r"
+			]
+		},
+		"Library/IRewardReserve.sol": {
+			"keccak256": "0x3e5b0669b4377fed9dd86af229e2c733cd172540bf98f1a9893258f454774eb9",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c015aaabb98b0fe58793b3be2c4012a57e062cb235299819370f6800ba6568f5",
+				"dweb:/ipfs/QmWonPPGZjSAwDhL7dBmtxtNFEDMAvS7R3tks2zSx6JGnM"
+			]
+		},
+		"Library/IRoleRegistry.sol": {
+			"keccak256": "0xbecd0e583454e4db42e7702321f242d4e3780d89fc0a89deafb341612ecbdc9f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c48cc783b29c16640da03399a611781b2c246ad4d3b48873e835757f00041f0a",
+				"dweb:/ipfs/QmYRQDHmyLzeYzfbuyeT3ogSoLu4gS7BdN6SwohJUT3VAV"
+			]
+		}
+	},
+	"version": 1
+}
