@@ -125,11 +125,11 @@ contract Router{
         return result;
     }
 
-    function getMinToDeposit(uint256 poolID) public validPoolID(poolID) view returns(uint256){
+    /*function getMinToDeposit(uint256 poolID) public validPoolID(poolID) view returns(uint256){
         address poolAddress = getPoolDetails(poolID).PoolAddress;
         uint256 result = IMutualPool(poolAddress).getMinAmountToDeposit();
         return result;
-    }
+    }*/
     function getPoolLength() external view returns(uint256){
         uint256 poolLength = PoolDetail.length;
         return poolLength;
