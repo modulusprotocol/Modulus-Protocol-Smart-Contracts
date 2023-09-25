@@ -347,7 +347,7 @@ contract Router{
         depositToPool(msg.sender, poolAddress, tokenToUseNow, toDeposit);
     }
 
-    function _checkSwapData(bytes calldata swapData) internal{
+    function _checkSwapData(bytes calldata swapData) internal pure{
         bytes4 selector;
             assembly {
             selector := calldataload(swapData.offset)
@@ -387,7 +387,7 @@ contract Router{
         }
     }
 
-    fallback() external payable{
+    receive() external payable{
         //do nothing
     }
 
