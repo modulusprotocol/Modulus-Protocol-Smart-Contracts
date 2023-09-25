@@ -41,4 +41,6 @@ contract RewardReserve{
     function transferReward(address token, uint256 amount, address to) external onlyValidPool{
         IERC20(token).safeTransfer(to,amount);
     }
+
+    
 }
