@@ -6,8 +6,8 @@ pragma solidity ^0.8.21;
 contract ContractDeploymentFactory{
     event Deployed(address addressContract, uint salt);
 
-    constructor(address owner) public{
-        _transferOwnerShip(owner);
+    constructor(address ownerAdd) public{
+        _transferOwnerShip(ownerAdd);
     }
 
     address owner;
