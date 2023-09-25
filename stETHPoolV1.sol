@@ -82,7 +82,7 @@ contract stETHPool{
     uint256 epochDuration;
     address TokentoDeposit;
     //address StakePoolAddress;
-    uint256 minToDeposit;
+    //uint256 minToDeposit;
     uint256 TICKET_DECIMAL;
     
 
@@ -136,10 +136,10 @@ contract stETHPool{
     function changeRegistryContractAddr(address registryAddress) external onlyOwner{
         _transferRegistryAddr(registryAddress);
     }
-    function getMinAmountToDeposit() public view returns(uint256){
-        uint256 result = minToDeposit;
-        return result;
-    }
+    //function getMinAmountToDeposit() public view returns(uint256){
+        //uint256 result = minToDeposit;
+        //return result;
+    //}
     function depositFor(address user, uint256 amount) external onlyRouter nonReentrant contractStarted{
         //require(amount >= minToDeposit,"The minimum amount is not met");
         uint256 realDepositAmount = getTokenFromMsgsender(amount);
@@ -414,11 +414,11 @@ contract stETHPool{
     function getRewardAllocationPercentage() external view returns(rewardAllocation memory){
         return AllocationPortion;
     } 
-    function config(address token, uint256 decimal,uint256 minAmount, uint256 duration) external onlyController{
+    function config(address token, uint256 decimal, uint256 duration) external onlyController{
         TokentoDeposit = token;
         TICKET_DECIMAL = decimal;
         epochDuration = duration;
-        minToDeposit = minAmount;
+        //minToDeposit = minAmount;
     }
 
     function setRewardRatio(uint256 firstP, uint256 secondP, uint256 thirdP, uint256 percentageSUM) external onlyController{
