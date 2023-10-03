@@ -55,9 +55,9 @@ contract RewardDistributor{
         IMutualPool(poolAddress).createNewEpoch();
     }
 
-    function SumUpandClaimPrizeEpoch(address poolAddress, uint256 epochNumber, bool manualClaimreward) external onlyOperator returns(uint256){
+    function ClaimPrizeEpoch(address poolAddress, uint256 epochNumber, bool manualClaimreward) external onlyOperator returns(uint256){
         uint256 rewardclaimed;
-        IMutualPool(poolAddress).finalizeEpochTicketandParticipantInfo(epochNumber);
+        //IMutualPool(poolAddress).finalizeEpochTicketandParticipantInfo(epochNumber);
         if(manualClaimreward){
             rewardclaimed = IMutualPool(poolAddress).claimRewardFromPool();
         }
@@ -75,17 +75,17 @@ contract RewardDistributor{
 
     }
 
-    function requestRandomness(address poolAddress,uint256 epochNumber, uint256 TotalTicketAmount,uint32 randomWordsAmount) external onlyOperator returns(uint256){
+    function requestRandomness(address poolAddress,uint256 epochNumber, uint256 TotalTicketAmount) external onlyOperator returns(uint256){
 
         address VRFAddress = IRoleRegistry(registryContract).getVRF();
-        uint256 requestID = IVRFv2DirectFundingConsumer(VRFAddress).requestRandomWords(randomWordsAmount);
+        uint256 requestID = IVRFv2DirectFundingConsumer(VRFAddress).requestRandomWords(3);
 
         randomnessHistory.push(RandomnessRequest({
             poolAddress: poolAddress,
             epochNumber: epochNumber,
             DrawRequestID: requestID,
             thisDrawTicketAmount: TotalTicketAmount,
-            randomWordsAmount: randomWordsAmount,
+            randomWordsAmount: 3,
             fulfilled: false,
             results: new uint256[](3)
         }));
