@@ -23,7 +23,7 @@ contract Router{
         uint256 totalPrize;
         uint256 duration;
         uint256 createdTimeStamp;
-        uint256 totalParticipant;
+        //uint256 totalParticipant;
     }
 
     struct rewardAllocation{
@@ -200,8 +200,8 @@ contract Router{
             finalized: IMutualPool(poolAddress).getEpochInfo(epochNumber).finalized,
             totalPrize: IMutualPool(poolAddress).getEpochInfo(epochNumber).totalPrize,
             duration: IMutualPool(poolAddress).getEpochInfo(epochNumber).duration,
-            createdTimeStamp: IMutualPool(poolAddress).getEpochInfo(epochNumber).createdTimeStamp,
-            totalParticipant: IMutualPool(poolAddress).getEpochInfo(epochNumber).totalParticipant
+            createdTimeStamp: IMutualPool(poolAddress).getEpochInfo(epochNumber).createdTimeStamp
+            //totalParticipant: IMutualPool(poolAddress).getEpochInfo(epochNumber).totalParticipant
         });
         return result;
         
