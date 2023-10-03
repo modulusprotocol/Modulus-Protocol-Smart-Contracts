@@ -28,7 +28,7 @@ contract stETHPool{
         uint256 totalPrize;
         uint256 duration;
         uint256 createdTimeStamp;
-        uint256 totalParticipant;
+        //uint256 totalParticipant;
     }
 
     struct rewardAllocation{
@@ -429,11 +429,11 @@ contract stETHPool{
         PercentageDecimal = percentageSUM;
         emit rewardPortionUpdated(firstP, secondP, thirdP);
     }
-    function finalizeEpochTicketandParticipantInfo(uint256 epochNumber) external onlyRewardDistributor{
-        EpochResult storage getEpochDetails = EpochResults[epochNumber];
-        uint256 endBlock = getEpochDetails.createdTimeStamp.add(getEpochDetails.duration);
-        getEpochDetails.totalParticipant = sumUptotalParticipant(epochNumber, endBlock);
-    }
+    //function finalizeEpochTicketandParticipantInfo(uint256 epochNumber) external onlyRewardDistributor{
+        //EpochResult storage getEpochDetails = EpochResults[epochNumber];
+        //uint256 endBlock = getEpochDetails.createdTimeStamp.add(getEpochDetails.duration);
+        //getEpochDetails.totalParticipant = sumUptotalParticipant(epochNumber, endBlock);
+    //}
     function finalizeEpoch(uint256 epochNumber, address firstWinner, address secondWinner, address thirdWinner, uint256 totalPrize) external onlyRewardDistributor{
         require(getUserID(firstWinner) != 0, "User doesn't exist");
         require(getUserID(secondWinner) != 0, "User doesn't exist");
@@ -475,7 +475,7 @@ contract stETHPool{
         uint256 changeAfterUpdate = afterUpdateBalance.sub(beforeUpdateBalance);
         return changeAfterUpdate;
     }
-    function sumUptotalParticipant(uint256 epochNumber, uint256 endBlock) internal view returns(uint256){
+    /*function sumUptotalParticipant(uint256 epochNumber, uint256 endBlock) internal view returns(uint256){
         uint256 amountofParticipant;
         for(uint i = 1; i<amountOfUser; i++){ 
             uint256 registeredBlock = userDepositInfo[i].registeredDate;
@@ -488,7 +488,7 @@ contract stETHPool{
             }
         }
         return amountofParticipant;
-    }
+    }*/
     function setClaimableRewards(uint256 epochNumber,address[] memory winners, uint256[] memory PrizeInOrder) internal{
         uint256 winnersLength = winners.length;
         for(uint i=0; i <winnersLength;i++){
@@ -525,8 +525,8 @@ contract stETHPool{
             finalized: false,
             totalPrize: 0,
             duration: epochDuration,
-            createdTimeStamp: block.timestamp,
-            totalParticipant: 0
+            createdTimeStamp: block.timestamp
+            
         })
         );
     }
